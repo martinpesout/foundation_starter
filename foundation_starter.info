@@ -1,0 +1,31 @@
+name = Foundation 5 Starter
+description = Starting theme for Drupal 7.x based on Foundation 5 front-end framework.
+core = "7.x"
+screenshot = images/screenshot.gif
+engine = phptemplate
+
+regions[header] = Header
+regions[highlighted] = Highlighted
+regions[help] = Help
+regions[content] = Content
+regions[sidebar_left] = Left sidebar
+regions[sidebar_right] = Right sidebar
+regions[footer] = Footer
+
+features[] = logo
+features[] = name
+features[] = slogan
+features[] = node_user_picture
+features[] = comment_user_picture
+features[] = search
+features[] = favicon
+features[] = main_menu
+features[] = secondary_menu
+
+; Stylesheets
+stylesheets[all][] = css/libraries/normalize.css
+stylesheets[all][] = css/libraries/foundation.css
+stylesheets[all][] = css/styles.css
+
+; Scripts
+scripts[] = js/scripts.js
