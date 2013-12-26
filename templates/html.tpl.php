@@ -19,15 +19,11 @@
   <?php print $page; ?>
   <?php print $page_bottom; ?>
 
-<?php 
-/*
-  <script src="/<?php print path_to_theme(); ?>/js/foundation/foundation.min.js"></script>
+
   <script>
     (function ($, Drupal, window, document, undefined) {
       $(document).foundation();
     })(jQuery, Drupal, this, this.document);
   </script>
- */
-?>
 </body>
 </html>

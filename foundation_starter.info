@@ -29,3 +29,5 @@ stylesheets[all][] = css/styles.css
 
 ; Scripts
 scripts[] = js/scripts.js
+scripts[] = js/foundation/foundation.js
+scripts[] = js/foundation/foundation.topbar.js
