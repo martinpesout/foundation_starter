@@ -132,4 +132,58 @@ function render_definition_list_links($variables) {
   return  '<dd' . $attr . '>' . $output .$sub_menu . "</dd>\n";
 }
 
+/**
+ * Override drupal core messages with Foundation alert-box messages.
+ * Customize the colors within the _settings.scss file.
+ *
+ * http://foundation.zurb.com/docs/v/4.3.2/components/alert-boxes.html
+ */
+function foundation_starter_status_messages($variables) {
+  $display = $variables['display'];
+  $output = '';
+
+  $status_heading = array(
+    'error' => t('Error message'),
+    'status' => t('Status message'),
+    'warning' => t('Warning message'),
+  );
+
+  $status_mapping = array(
+    'error' => 'alert',
+    'status' => 'success',
+    'warning' => 'secondary'
+  );
+
+  foreach (drupal_get_messages($display) as $type => $messages) {
+    if (isset($status_mapping[$type])) {
+      $output .= "<div data-alert class=\"alert-box radius $status_mapping[$type]\">\n";
+    }
+    else {
+      $output .= "<div data-alert class=\"alert-box radius \">\n";
+    }
+
+    if (!empty($status_heading[$type])) {
+      $output .= '<h2 class="element-invisible">' . $status_heading[$type] . "</h2>\n";
+    }
+    if (count($messages) > 1) {
+      $output .= " <ul class=\"no-bullet\">\n";
+      foreach ($messages as $message) {
+        $output .= '  <li>' . $message . "</li>\n";
+      }
+      $output .= " </ul>\n";
+    }
+    else {
+      $output .= $messages[0];
+    }
+
+    // close button
+    // if you don't need close button, just remove (or comment) next line
+    $output .= '<a href="#" class="close">&times;</a>';
+    
+    $output .= "</div>\n";
+  }
+
+  return $output;
+}
+
 ?>
